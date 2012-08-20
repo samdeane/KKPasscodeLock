@@ -76,7 +76,7 @@ typedef NSUInteger KKPasscodeMode;
 	UILabel* _failedAttemptsLabel;
   
   // failed attements coutner
-	NSInteger _failedAttemptsCount;
+	NSUInteger _failedAttemptsCount;
 	
   // the current panel that being displayed
 	NSUInteger _currentPanel;
