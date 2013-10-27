@@ -1,5 +1,5 @@
 //
-// Copyright 2011-2012 Kosher Penguin LLC
+// Copyright 2011-2012 Kosher Penguin LLC 
 // Created by Adar Porat (https://github.com/aporat) on 1/16/2012.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,21 +15,33 @@
 // limitations under the License.
 //
 
-#import "RootViewController.h"
-#import "SettingsViewController.h"
+#import "KKPasscodeLockTests.h"
+#import "KKPasscodeLock.h"
 
-@implementation RootViewController
+@implementation KKPasscodeLockTests
 
-- (IBAction)showPasscode:(id)sender {
+- (void)setUp
+{
+    [super setUp];
     
-    SettingsViewController* settingsViewController = [[SettingsViewController alloc]
-                                                      initWithNibName:@"SettingsViewController" bundle:nil];
-    
-    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
-    
-    [self presentModalViewController:navController animated:YES];
-    
+    // Set-up code here.
 }
 
+- (void)tearDown
+{
+    // Tear-down code here.
+    
+    [super tearDown];
+}
+
+- (void)testDefaultSettings
+{
+  KKPasscodeLock* sharedLock = [KKPasscodeLock sharedLock];
+  
+  STAssertEquals(sharedLock.eraseOption, YES, @"Erase option is default to YES");
+  STAssertEquals(sharedLock.attemptsAllowed, (NSUInteger)5, @"attemptsAllowed default to 5 tries");
+  
+    
+}
 
 @end
