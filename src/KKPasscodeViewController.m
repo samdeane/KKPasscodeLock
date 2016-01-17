@@ -311,7 +311,7 @@
     
     _failedAttemptsCount++;
     
-    [KKKeychain setString:[NSString stringWithFormat:@"%d", _failedAttemptsCount] forKey:@"failedAttemptsCount"];
+    [KKKeychain setString:[NSString stringWithFormat:@"%ld", (long)_failedAttemptsCount] forKey:@"failedAttemptsCount"];
 
 	if (_failedAttemptsCount == 1) {
 		_failedAttemptsLabel.text = KKPasscodeLockLocalizedString(@"1 Failed Passcode Attempt", @"");
